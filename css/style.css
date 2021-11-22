@@ -1,0 +1,209 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* body{} */
+
+main{
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+}
+main h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 33px;
+}
+main .gallery nav .navbar-brand {
+    text-shadow: 0 1px 1px #333;
+}
+
+main .gallery .image__container{
+    max-width: 800px;
+    margin: auto;
+    padding: 1rem;
+    display: grid;
+    /* display: flex; */
+    position: relative;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-gap: 5px;
+}
+
+main .gallery .image__container .figure {
+    width: fit-content;
+    /* display: inline-block; */
+    height: 180px;
+    cursor: pointer;
+    width: 100%;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background-color: rgb(220 220 220 / 13%);
+    /* margin: 0 3px; */
+}
+main .gallery .image__container .figure img {
+    height: 180px;
+    width: auto;
+    /* filter: blur(0.5px);
+    transition: 1s; */
+}
+main .gallery .image__container .figure img:hover {
+    filter: blur(0);
+    padding: 1px;
+}
+main .gallery .image-viewer{
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    /* background-color: rgba(0, 0, 0, 0.85); */
+    background-color: #fff;
+    overflow-y: auto;
+}
+
+main .gallery .image-viewer > header{
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* padding: 0 .5rem; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #000;
+    background-color: rgb(167, 166, 166);
+}
+main .gallery .image-viewer > header > span {
+    padding: 0 .5rem;
+}
+main .gallery .image-viewer header i {
+    /* font-size: 40px; */
+    /* margin: -15px 5px 0 0; */
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    width: 3rem;
+    font-size: 20px;
+    font-style: bold;
+    text-align: center;
+    height: 2rem;
+    transition: 0.4s;
+}
+main .gallery .image-viewer header i:hover{
+    background-color: red;
+    color: #fff;
+}
+
+
+main .gallery .image-viewer::-webkit-scrollbar{
+    width: 5px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+main .gallery .image-viewer::-webkit-scrollbar-thumb{
+    background-color: grey;
+    border-radius: 5px;
+}
+main .gallery .image-viewer div.container{
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* /* display: flex; */
+    justify-content: center;
+}
+main .gallery .image-viewer div.container > button {
+    position: fixed;
+    top: 50%;
+    font-size: 30px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: grey;
+    background-color: transparent;
+}
+main .gallery .image-viewer div.container > button.fa-chevron-circle-left{
+    left: 10px;
+}
+main .gallery .image-viewer div.container > button.fa-chevron-circle-right{
+    right: 10px;
+}
+main .gallery .image-viewer div.container > div{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    max-width: 90%;
+}
+main .gallery .image-viewer div.container > div img {
+    /* max-width: 90%; */
+    max-height: 85vh;
+    
+    /* min-width: 100%; */
+    border: 1px solid gainsboro;
+    /* filter: drop-shadow(0 1px 5px #333); */
+    border-radius: 5px;
+    /* transform: rotateY('360deg'); */
+    /* margin: 2rem auto 0 auto; */
+}
+
+/* ~ .caption {
+    height: 30%;
+} */
+/* main .gallery .image-viewer div.container > div .caption:hover {
+    height: 100%;
+} */
+main .gallery .image-viewer > header > .caption{
+    /* background-color: white; */
+    justify-content: flex-start;
+    /* color: ; */
+    text-align: left;
+    align-items: center;
+    padding: 0 1rem;
+    width: 70%;
+    margin-right: auto;
+    display: flex;
+}
+main .gallery .image-viewer > header > .caption > h1 {
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space: nowrap;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Loader */
+main .gallery .loader-container{
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute  !important;
+    top: 0 !important;
+    left: 0 !important;
+    display: grid;
+    place-items: center;    
+    z-index: 9;
+}
+main .gallery .loader-container .loader{
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    background-color: #fff;
+    border: .3rem solid rgba(51, 51, 51, 0.803);
+    border-top: .3rem solid transparent;
+    border-radius: 50%;
+    animation: rotate 1.5s linear infinite;
+}
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+        
+    }
+}
